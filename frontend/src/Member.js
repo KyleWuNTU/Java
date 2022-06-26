@@ -11,8 +11,12 @@ class Member extends Component {
   }
 
   componentDidMount() {
-    fetch('api/members').then(response => response.json())
-      .then(data => this.setState({ members: data }));
+    fetch('Member/test1', {
+      method: "GET", headers: new Headers({ 'Content-Type': 'application/json', }) //設定Content-Type
+    })
+      .then(response => response.json()) /*把request json化*/
+      .then(data => this.setState({ members: data })) /*接到request data後要做的事情*/
+      .catch(e => { console.log(e); });
   }
 
   render() {
@@ -20,10 +24,8 @@ class Member extends Component {
 
     const memberList = members.map(member => {
       return <tr key={member.mid}>
-        <td>{member.email}</td>
-        <td>{member.password}</td>
-        <td>{member.firstName}</td>
-        <td>{member.lastName}</td>
+        <td>{member.name}</td>
+        <td>{member.gender}</td>
       </tr>
     });
 
@@ -35,10 +37,8 @@ class Member extends Component {
           <Table className="mt-4">
             <thead>
               <tr>
-                <th>Email</th>
-                <th>Password</th>
-                <th>FirstName</th>
-                <th>LastName</th>
+                <th>Name</th>
+                <th>Gender</th>
               </tr>
             </thead>
             <tbody>

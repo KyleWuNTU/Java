@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@ComponentScan 掃描當前包與底下所有@Controller, @Service, @Compoment, @Repository項目
 
 @SpringBootApplication
-public class TodolistApplication {
+public class Application {
 	public static void main(String[] args) {
-		SpringApplication.run(TodolistApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
